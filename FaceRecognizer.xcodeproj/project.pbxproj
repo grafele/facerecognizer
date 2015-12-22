@@ -13,6 +13,13 @@
 		F661021D1C29AF3C00639090 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F661021B1C29AF3C00639090 /* Main.storyboard */; };
 		F661021F1C29AF3C00639090 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F661021E1C29AF3C00639090 /* Assets.xcassets */; };
 		F66102221C29AF3C00639090 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F66102201C29AF3C00639090 /* LaunchScreen.storyboard */; };
+		F661022A1C29B09400639090 /* FaceRecognizer.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66102291C29B09400639090 /* FaceRecognizer.swift */; };
+		F661022C1C29B1C500639090 /* FaceDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F661022B1C29B1C500639090 /* FaceDetector.swift */; };
+		F66102331C29B20A00639090 /* GCFaceRecognizer.mm in Sources */ = {isa = PBXBuildFile; fileRef = F66102321C29B20A00639090 /* GCFaceRecognizer.mm */; };
+		F66102361C29B22700639090 /* GCFaceDetector.mm in Sources */ = {isa = PBXBuildFile; fileRef = F66102351C29B22700639090 /* GCFaceDetector.mm */; };
+		F661023A1C29B4BF00639090 /* UIImage+OpenCV.mm in Sources */ = {isa = PBXBuildFile; fileRef = F66102381C29B4BF00639090 /* UIImage+OpenCV.mm */; };
+		F661023D1C29B5E600639090 /* haarcascade_eye_tree_eyeglasses.xml in Resources */ = {isa = PBXBuildFile; fileRef = F661023B1C29B5E600639090 /* haarcascade_eye_tree_eyeglasses.xml */; };
+		F661023E1C29B5E600639090 /* haarcascade_frontalface_alt2.xml in Resources */ = {isa = PBXBuildFile; fileRef = F661023C1C29B5E600639090 /* haarcascade_frontalface_alt2.xml */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +33,17 @@
 		F661021E1C29AF3C00639090 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F66102211C29AF3C00639090 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F66102231C29AF3C00639090 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F66102291C29B09400639090 /* FaceRecognizer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceRecognizer.swift; sourceTree = "<group>"; };
+		F661022B1C29B1C500639090 /* FaceDetector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FaceDetector.swift; sourceTree = "<group>"; };
+		F66102301C29B20900639090 /* FaceRecognizer-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "FaceRecognizer-Bridging-Header.h"; sourceTree = "<group>"; };
+		F66102311C29B20A00639090 /* GCFaceRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCFaceRecognizer.h; sourceTree = "<group>"; };
+		F66102321C29B20A00639090 /* GCFaceRecognizer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GCFaceRecognizer.mm; sourceTree = "<group>"; };
+		F66102341C29B22700639090 /* GCFaceDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCFaceDetector.h; sourceTree = "<group>"; };
+		F66102351C29B22700639090 /* GCFaceDetector.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GCFaceDetector.mm; sourceTree = "<group>"; };
+		F66102371C29B4BF00639090 /* UIImage+OpenCV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+OpenCV.h"; sourceTree = "<group>"; };
+		F66102381C29B4BF00639090 /* UIImage+OpenCV.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "UIImage+OpenCV.mm"; sourceTree = "<group>"; };
+		F661023B1C29B5E600639090 /* haarcascade_eye_tree_eyeglasses.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_eye_tree_eyeglasses.xml; sourceTree = "<group>"; };
+		F661023C1C29B5E600639090 /* haarcascade_frontalface_alt2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_frontalface_alt2.xml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -80,12 +98,56 @@
 			children = (
 				F66102171C29AF3C00639090 /* AppDelegate.swift */,
 				F66102191C29AF3C00639090 /* ViewController.swift */,
+				F661022D1C29B1CC00639090 /* Face recognition */,
 				F661021B1C29AF3C00639090 /* Main.storyboard */,
 				F661021E1C29AF3C00639090 /* Assets.xcassets */,
 				F66102201C29AF3C00639090 /* LaunchScreen.storyboard */,
 				F66102231C29AF3C00639090 /* Info.plist */,
+				F66102301C29B20900639090 /* FaceRecognizer-Bridging-Header.h */,
+				F661023B1C29B5E600639090 /* haarcascade_eye_tree_eyeglasses.xml */,
+				F661023C1C29B5E600639090 /* haarcascade_frontalface_alt2.xml */,
 			);
 			path = FaceRecognizer;
+			sourceTree = "<group>";
+		};
+		F661022D1C29B1CC00639090 /* Face recognition */ = {
+			isa = PBXGroup;
+			children = (
+				F661022E1C29B1DD00639090 /* Swift */,
+				F661022F1C29B1E400639090 /* Obj C */,
+			);
+			name = "Face recognition";
+			sourceTree = "<group>";
+		};
+		F661022E1C29B1DD00639090 /* Swift */ = {
+			isa = PBXGroup;
+			children = (
+				F66102291C29B09400639090 /* FaceRecognizer.swift */,
+				F661022B1C29B1C500639090 /* FaceDetector.swift */,
+			);
+			name = Swift;
+			sourceTree = "<group>";
+		};
+		F661022F1C29B1E400639090 /* Obj C */ = {
+			isa = PBXGroup;
+			children = (
+				F66102341C29B22700639090 /* GCFaceDetector.h */,
+				F66102351C29B22700639090 /* GCFaceDetector.mm */,
+				F66102311C29B20A00639090 /* GCFaceRecognizer.h */,
+				F66102321C29B20A00639090 /* GCFaceRecognizer.mm */,
+				F66102391C29B4BF00639090 /* Categories */,
+			);
+			name = "Obj C";
+			sourceTree = "<group>";
+		};
+		F66102391C29B4BF00639090 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				F66102371C29B4BF00639090 /* UIImage+OpenCV.h */,
+				F66102381C29B4BF00639090 /* UIImage+OpenCV.mm */,
+			);
+			name = Categories;
+			path = "../../../issue-21-OpenCV-FaceRec/FaceRec";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,7 +213,9 @@
 			files = (
 				F66102221C29AF3C00639090 /* LaunchScreen.storyboard in Resources */,
 				F661021F1C29AF3C00639090 /* Assets.xcassets in Resources */,
+				F661023E1C29B5E600639090 /* haarcascade_frontalface_alt2.xml in Resources */,
 				F661021D1C29AF3C00639090 /* Main.storyboard in Resources */,
+				F661023D1C29B5E600639090 /* haarcascade_eye_tree_eyeglasses.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -211,6 +275,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				F661021A1C29AF3C00639090 /* ViewController.swift in Sources */,
+				F661022A1C29B09400639090 /* FaceRecognizer.swift in Sources */,
+				F66102361C29B22700639090 /* GCFaceDetector.mm in Sources */,
+				F661022C1C29B1C500639090 /* FaceDetector.swift in Sources */,
+				F661023A1C29B4BF00639090 /* UIImage+OpenCV.mm in Sources */,
+				F66102331C29B20A00639090 /* GCFaceRecognizer.mm in Sources */,
 				F66102181C29AF3C00639090 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -325,10 +394,13 @@
 			baseConfigurationReference = 1AF85467362E8F26707DB88A /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = FaceRecognizer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.grafcoding.FaceRecognizer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FaceRecognizer/FaceRecognizer-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
 		};
@@ -337,10 +409,12 @@
 			baseConfigurationReference = 44726AD0829633AA8B2ECD99 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = FaceRecognizer/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.grafcoding.FaceRecognizer;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "FaceRecognizer/FaceRecognizer-Bridging-Header.h";
 			};
 			name = Release;
 		};
