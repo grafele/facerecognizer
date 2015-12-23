@@ -23,8 +23,7 @@ using namespace cv;
 
 @implementation GCFaceRecognizer
 
-- (instancetype)init
-{
+- (instancetype)init {
     self = [super init];
     if (self) {
         _faceClassifier = createLBPHFaceRecognizer();
@@ -49,12 +48,57 @@ using namespace cv;
     return self;
 }
 
+- (NSString *)predict:(UIImage*)image confidence:(double *)confidence {
+    int label;
+    cv::Mat src = [image cvMatRepresentationGray];
+    
+    _faceClassifier->predict(src, label, *confidence);
+    
+    return _labelsDictionary[@(label)];
+}
+
+- (void)updateWithFace:(UIImage *)img name:(NSString *)name {
+    cv::Mat graySrc = [img cvMatRepresentationGray];
+    
+    NSSet *keys = [_labelsDictionary keysOfEntriesPassingTest:^BOOL(id key, id obj, BOOL *stop) {
+        return ([name isEqual:obj]);
+    }];
+    
+    NSInteger label;
+    
+    if (keys.count) {
+        label = [[keys anyObject] integerValue];
+    } else {
+        label = _labelsDictionary.allKeys.count;
+        _labelsDictionary[@(label)] = name;
+    }
+    
+    vector<cv::Mat> images = vector<cv::Mat>();
+    images.push_back(graySrc);
+    vector<int> labels = vector<int>();
+    labels.push_back((int)label);
+    
+    _faceClassifier->update(images, labels);
+    
+    [self serializeFaceRecognizerParamaters];
+}
+
+
+#pragma mark - Helper
+
 - (NSURL *)faceModelFileURL {
     NSArray *paths = [[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask];
     NSURL *documentsURL = [paths lastObject];
     NSURL *modelURL = [documentsURL URLByAppendingPathComponent:@"face-model.xml"];
     return modelURL;
 }
+
+- (void)serializeFaceRecognizerParamaters {
+    NSString *path = [[self faceModelFileURL] path];
+    _faceClassifier->save(path.UTF8String);
+    [NSKeyedArchiver archiveRootObject:self.labelsDictionary toFile:[path stringByAppendingString:@".names"]];
+}
+
 
 
 @end
