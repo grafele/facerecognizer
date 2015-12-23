@@ -15,6 +15,7 @@ using namespace cv;
 
 @interface GCFaceDetector () {
     CascadeClassifier _faceDetector;
+    CascadeClassifier _eyesDetector;
 }
 
 @property(nonatomic, strong) UIImage *image;
@@ -44,12 +45,16 @@ using namespace cv;
 - (void)loadFaceDetector {
     NSString *faceCascadeFilePath = [[NSBundle mainBundle] pathForResource:@"haarcascade_frontalface_alt2" ofType:@"xml"];
 
-    // Load content of file to char array CASCADE_NAME
+    // Load content of file to char array CASCADE_NAME -> Face detector
     const CFIndex CASCADE_NAME_LEN = 2048;
     char *CASCADE_NAME = (char *) malloc(CASCADE_NAME_LEN);
     CFStringGetFileSystemRepresentation( (CFStringRef)faceCascadeFilePath, CASCADE_NAME, CASCADE_NAME_LEN);
-    
     _faceDetector.load(CASCADE_NAME);
+
+    // Load content of file to char array CASCADE_NAME -> Eye detector
+    NSString *eyesCascadePath = [[NSBundle mainBundle] pathForResource:@"haarcascade_eye_tree_eyeglasses" ofType:@"xml"];
+    CFStringGetFileSystemRepresentation( (CFStringRef)eyesCascadePath, CASCADE_NAME, CASCADE_NAME_LEN);
+    _eyesDetector.load(CASCADE_NAME);
     
     free(CASCADE_NAME);
 }
@@ -58,11 +63,21 @@ using namespace cv;
     cv:Mat img = [self.image cvMatRepresentationColor];
 
     vector<cv::Rect> faceRects;
+    
     _faceDetector.detectMultiScale(img, faceRects);
     
     NSMutableArray *faceImages = @[].mutableCopy;
 
     for(vector<cv::Rect>::const_iterator r = faceRects.begin(); r != faceRects.end(); r++) {
+        if(_eyesDetector.empty())
+            continue;
+        
+        vector<cv::Rect> eyeRects;
+        _eyesDetector.detectMultiScale(img(*r).clone(), eyeRects);
+        
+        if (eyeRects.size() < 1)
+            continue;
+        
         UIImage *faceImage = [UIImage imageFromCVMat:img(*r).clone()];
         [faceImages addObject:faceImage];
     }
