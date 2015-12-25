@@ -60,10 +60,17 @@ using namespace cv;
 
 - (void)startProcessingImage {
     cv:Mat img = [self.image cvMatRepresentationColor];
+    int scale = self.image.scale;
+    
+    Mat gray, smallImg( cvRound (img.rows/scale), cvRound(img.cols/scale), CV_8UC1 );
+
+    cvtColor(img, gray, COLOR_BGR2GRAY);
+    resize(gray, smallImg, smallImg.size(), 0, 0, INTER_LINEAR);
+    equalizeHist(smallImg, smallImg);
 
     vector<cv::Rect> faceRects;
     
-    _faceDetector.detectMultiScale(img, faceRects);
+    _faceDetector.detectMultiScale(smallImg, faceRects);
     
     NSMutableArray *faceImages = @[].mutableCopy;
 
@@ -72,12 +79,12 @@ using namespace cv;
             continue;
         
         vector<cv::Rect> eyeRects;
-        _eyesDetector.detectMultiScale(img(*r).clone(), eyeRects);
+        _eyesDetector.detectMultiScale(smallImg(*r).clone(), eyeRects);
         
         if (eyeRects.size() < 1)
             continue;
         
-        UIImage *faceImage = [UIImage imageFromCVMat:img(*r).clone()];
+        UIImage *faceImage = [UIImage imageFromCVMat:smallImg(*r).clone()];
         [faceImages addObject:faceImage];
     }
     

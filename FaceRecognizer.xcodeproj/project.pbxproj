@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		BEF093000BFE42F97328939C /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = DE82FFBC70BC7AA993EB0E93 /* libPods.a */; };
+		F647F9A81C2D56AA00B36C84 /* UIImage+OpenCV.mm in Sources */ = {isa = PBXBuildFile; fileRef = F647F9A71C2D56AA00B36C84 /* UIImage+OpenCV.mm */; };
 		F66102181C29AF3C00639090 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66102171C29AF3C00639090 /* AppDelegate.swift */; };
 		F661021A1C29AF3C00639090 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F66102191C29AF3C00639090 /* ViewController.swift */; };
 		F661021D1C29AF3C00639090 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F661021B1C29AF3C00639090 /* Main.storyboard */; };
@@ -17,7 +18,6 @@
 		F661022C1C29B1C500639090 /* FaceDetector.swift in Sources */ = {isa = PBXBuildFile; fileRef = F661022B1C29B1C500639090 /* FaceDetector.swift */; };
 		F66102331C29B20A00639090 /* GCFaceRecognizer.mm in Sources */ = {isa = PBXBuildFile; fileRef = F66102321C29B20A00639090 /* GCFaceRecognizer.mm */; };
 		F66102361C29B22700639090 /* GCFaceDetector.mm in Sources */ = {isa = PBXBuildFile; fileRef = F66102351C29B22700639090 /* GCFaceDetector.mm */; };
-		F661023A1C29B4BF00639090 /* UIImage+OpenCV.mm in Sources */ = {isa = PBXBuildFile; fileRef = F66102381C29B4BF00639090 /* UIImage+OpenCV.mm */; };
 		F661023D1C29B5E600639090 /* haarcascade_eye_tree_eyeglasses.xml in Resources */ = {isa = PBXBuildFile; fileRef = F661023B1C29B5E600639090 /* haarcascade_eye_tree_eyeglasses.xml */; };
 		F661023E1C29B5E600639090 /* haarcascade_frontalface_alt2.xml in Resources */ = {isa = PBXBuildFile; fileRef = F661023C1C29B5E600639090 /* haarcascade_frontalface_alt2.xml */; };
 /* End PBXBuildFile section */
@@ -26,6 +26,8 @@
 		1AF85467362E8F26707DB88A /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		44726AD0829633AA8B2ECD99 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
 		DE82FFBC70BC7AA993EB0E93 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		F647F9A61C2D56AA00B36C84 /* UIImage+OpenCV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+OpenCV.h"; sourceTree = "<group>"; };
+		F647F9A71C2D56AA00B36C84 /* UIImage+OpenCV.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "UIImage+OpenCV.mm"; sourceTree = "<group>"; };
 		F66102141C29AF3C00639090 /* FaceRecognizer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FaceRecognizer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F66102171C29AF3C00639090 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F66102191C29AF3C00639090 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -40,8 +42,6 @@
 		F66102321C29B20A00639090 /* GCFaceRecognizer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GCFaceRecognizer.mm; sourceTree = "<group>"; };
 		F66102341C29B22700639090 /* GCFaceDetector.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCFaceDetector.h; sourceTree = "<group>"; };
 		F66102351C29B22700639090 /* GCFaceDetector.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GCFaceDetector.mm; sourceTree = "<group>"; };
-		F66102371C29B4BF00639090 /* UIImage+OpenCV.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+OpenCV.h"; sourceTree = "<group>"; };
-		F66102381C29B4BF00639090 /* UIImage+OpenCV.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "UIImage+OpenCV.mm"; sourceTree = "<group>"; };
 		F661023B1C29B5E600639090 /* haarcascade_eye_tree_eyeglasses.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_eye_tree_eyeglasses.xml; sourceTree = "<group>"; };
 		F661023C1C29B5E600639090 /* haarcascade_frontalface_alt2.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = haarcascade_frontalface_alt2.xml; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -143,8 +143,8 @@
 		F66102391C29B4BF00639090 /* Categories */ = {
 			isa = PBXGroup;
 			children = (
-				F66102371C29B4BF00639090 /* UIImage+OpenCV.h */,
-				F66102381C29B4BF00639090 /* UIImage+OpenCV.mm */,
+				F647F9A61C2D56AA00B36C84 /* UIImage+OpenCV.h */,
+				F647F9A71C2D56AA00B36C84 /* UIImage+OpenCV.mm */,
 			);
 			name = Categories;
 			path = "../../../issue-21-OpenCV-FaceRec/FaceRec";
@@ -278,7 +278,7 @@
 				F661022A1C29B09400639090 /* FaceRecognizer.swift in Sources */,
 				F66102361C29B22700639090 /* GCFaceDetector.mm in Sources */,
 				F661022C1C29B1C500639090 /* FaceDetector.swift in Sources */,
-				F661023A1C29B4BF00639090 /* UIImage+OpenCV.mm in Sources */,
+				F647F9A81C2D56AA00B36C84 /* UIImage+OpenCV.mm in Sources */,
 				F66102331C29B20A00639090 /* GCFaceRecognizer.mm in Sources */,
 				F66102181C29AF3C00639090 /* AppDelegate.swift in Sources */,
 			);
