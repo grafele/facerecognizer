@@ -13,7 +13,6 @@ typedef void (^GCFaceDetectorCompletionBlock)(NSArray* detectedFaces);
 
 @interface GCFaceDetector : NSObject
 
-- (instancetype)initWithImage:(UIImage *)image;
-- (void)processImageWithCompletionHandler:(GCFaceDetectorCompletionBlock)completionHandler;
+- (void)processImage:(UIImage *)image withCompletionHandler:(GCFaceDetectorCompletionBlock)completionHandler;
 
 @end

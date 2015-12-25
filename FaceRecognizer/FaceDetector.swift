@@ -7,3 +7,13 @@
 //
 
 import Foundation
+
+class FaceDetector {
+    private static let sharedFaceDetector = GCFaceDetector()
+    
+    class func processImage(image: UIImage, completionHandler: (faceImages: [UIImage]) -> ()) {
+        sharedFaceDetector.processImage(image) { (faces) -> Void in
+            completionHandler(faceImages: faces as! [UIImage])
+        }
+    }
+}

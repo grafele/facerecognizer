@@ -25,17 +25,16 @@ using namespace cv;
 
 @implementation GCFaceDetector
 
-- (instancetype)initWithImage:(UIImage *)image {
+- (instancetype)init {
     self = [super init];
     if (self) {
-        self.image = image;
-        
         [self loadFaceDetector];
     }
     return self;
 }
 
-- (void)processImageWithCompletionHandler:(GCFaceDetectorCompletionBlock)completionHandler {
+- (void)processImage:(UIImage *)image withCompletionHandler:(GCFaceDetectorCompletionBlock)completionHandler {
+    self.image = image;
     self.completionHandler = completionHandler;
     [self startProcessingImage];
 }

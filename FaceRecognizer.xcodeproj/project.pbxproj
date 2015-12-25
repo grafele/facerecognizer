@@ -122,8 +122,8 @@
 		F661022E1C29B1DD00639090 /* Swift */ = {
 			isa = PBXGroup;
 			children = (
-				F66102291C29B09400639090 /* FaceRecognizer.swift */,
 				F661022B1C29B1C500639090 /* FaceDetector.swift */,
+				F66102291C29B09400639090 /* FaceRecognizer.swift */,
 			);
 			name = Swift;
 			sourceTree = "<group>";

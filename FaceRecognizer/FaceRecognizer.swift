@@ -9,18 +9,16 @@
 import Foundation
 import UIKit
 
-class FaceRecognizer: NSObject {
-    
-    func addUserPicture(username: String, picture: UIImage) {
-        
+class FaceRecognizer {
+    private static let sharedFaceRecognizer = GCFaceRecognizer()
+
+    class func addUserPicture(username: String, picture: UIImage) {
+        sharedFaceRecognizer.updateWithFace(picture, name: username)
     }
     
-    func findAllPicturesContainingUser(username: String, minAccuracy: Double) {
-        
+    class func predictUserByPicture(picture: UIImage) -> (username: String, confidence: Double) {
+        var confidence = 0.0
+        let username = sharedFaceRecognizer.predict(picture, confidence: &confidence)
+        return (username: username, confidence: confidence)
     }
-    
-    func predictUserByPicture(picture: UIImage) -> String {
-        return "";
-    }
-    
 }
